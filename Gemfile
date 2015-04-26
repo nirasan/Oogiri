@@ -43,3 +43,16 @@ group :development, :test do
   gem 'spring'
 end
 
+
+gem 'haml-rails'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda-matchers', '~> 2.6.0'
+  gem 'capybara'
+  
+  gem "quiet_assets"
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem "letter_opener"
+end

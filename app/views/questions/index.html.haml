@@ -3,7 +3,6 @@
 %table
   %thead
     %tr
-      %th User
       %th Title
       %th Category
       %th
@@ -13,7 +12,6 @@
   %tbody
     - @questions.each do |question|
       %tr
-        %td= question.user_id
         %td= question.title
         %td= question.category
         %td= link_to 'Show', question

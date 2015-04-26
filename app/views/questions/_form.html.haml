@@ -12,5 +12,8 @@
   .field
     = f.label :category
     = f.select :category, Question.category.options
+  .field
+    = f.label :image
+    = f.file_field :image
   .actions
     = f.submit 'Save'

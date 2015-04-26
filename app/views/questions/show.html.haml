@@ -9,6 +9,9 @@
 %p
   %b Category:
   = @question.category
+%p
+  %b Image:
+  = image_tag @question.image.url()
 
 = link_to 'Edit', edit_question_path(@question)
 \|

@@ -44,6 +44,8 @@ group :development, :test do
 end
 
 
+gem 'devise'
+
 gem 'haml-rails'
 
 group :development, :test do

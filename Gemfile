@@ -52,7 +52,11 @@ group :development, :test do
   gem 'capybara'
   
   gem "quiet_assets"
+  
   gem 'hirb'
   gem 'hirb-unicode'
+  
   gem "letter_opener"
+
+  gem 'erb2haml'
 end

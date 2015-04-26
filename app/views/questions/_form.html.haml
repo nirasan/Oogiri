@@ -11,6 +11,6 @@
     = f.text_field :title
   .field
     = f.label :category
-    = f.text_field :category
+    = f.select :category, Question.category.options
   .actions
     = f.submit 'Save'

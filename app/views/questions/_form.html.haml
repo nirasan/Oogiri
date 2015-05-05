@@ -1,19 +1,8 @@
-= form_for @question do |f|
-  - if @question.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@question.errors.count, "error")} prohibited this question from being saved:"
-      %ul
-        - @question.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :category
-    = f.select :category, Question.category.options
-  .field
-    = f.label :image
-    = f.file_field :image
-  .actions
-    = f.submit 'Save'
+= simple_form_for @question, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :title
+  = f.input :category
+  = f.input :image
+  - if @question.image.exists?
+    = image_tag @question.image.url(), class:"img-thumbnail"
+    %br
+  = f.submit nil, :class => 'btn btn-primary'

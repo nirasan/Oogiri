@@ -54,6 +54,8 @@ gem 'enumerize'
 
 gem "paperclip"
 
+gem "simple_form"
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', '~> 2.6.0'

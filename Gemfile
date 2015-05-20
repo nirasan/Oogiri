@@ -51,7 +51,9 @@ gem 'bootstrap-sass'
 
 gem 'enumerize'
 gem "paperclip"
+
 gem "simple_form"
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

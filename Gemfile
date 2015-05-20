@@ -47,13 +47,10 @@ end
 gem 'devise'
 
 gem 'haml-rails'
-
 gem 'bootstrap-sass'
 
 gem 'enumerize'
-
 gem "paperclip"
-
 gem "simple_form"
 
 group :development, :test do
@@ -69,4 +66,6 @@ group :development, :test do
   gem "letter_opener"
 
   gem 'erb2haml'
+
+  gem 'better_errors'
 end

@@ -50,9 +50,9 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 
 gem 'enumerize'
-gem "paperclip"
+gem 'paperclip'
 
-gem "simple_form"
+gem 'simple_form'
 gem 'kaminari'
 
 group :development, :test do
@@ -60,12 +60,12 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 2.6.0'
   gem 'capybara'
   
-  gem "quiet_assets"
+  gem 'quiet_assets'
   
   gem 'hirb'
   gem 'hirb-unicode'
   
-  gem "letter_opener"
+  gem 'letter_opener'
 
   gem 'erb2haml'
 

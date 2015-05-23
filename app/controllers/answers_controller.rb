@@ -1,10 +1,14 @@
 class AnswersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:public]
   before_action :set_question, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
 
+  def public
+    @answers = Answer.all.page(params[:page]).per(3)
+  end
+
   def index
-    @answers = @question.answers
+    @answers = @question.answers.page(params[:page]).per(3)
   end
 
   def show
@@ -50,7 +54,7 @@ class AnswersController < ApplicationController
   private
 
   def set_question
-    @question = Question.find(params[:question_id])
+    @question = current_user.questions.find(params[:question_id])
   end
 
   def set_answer

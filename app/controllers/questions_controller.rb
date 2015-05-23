@@ -1,6 +1,10 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:public]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+
+  def public
+    @questions = Question.all.page(params[:page]).per(3)
+  end
 
   def index
     @questions = current_user.questions.page(params[:page]).per(3)

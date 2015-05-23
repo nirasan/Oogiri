@@ -1,0 +1,24 @@
+%h1 Listing questions
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Category
+      %th User
+      %th
+      %th
+      %th
+      %th
+
+  %tbody
+    - @questions.each do |question|
+      %tr
+        %td= question.title
+        %td= question.category
+        %td= question.user.email
+        %td= link_to 'Show', question
+        %td= link_to 'Add Answer', new_question_answer_path(question)
+
+= paginate @questions
+

@@ -46,11 +46,12 @@ class QuestionsController < ApplicationController
   end
 
   private
-    def set_question
-      @question = current_user.questions.find(params[:id])
-    end
 
-    def question_params
-      params.require(:question).permit(:title, :category, :image)
-    end
+  def set_question
+    @question = current_user.questions.find(params[:id])
+  end
+
+  def question_params
+    params.require(:question).permit(:title, :category, :image)
+  end
 end

@@ -13,6 +13,8 @@
   %b Image:
   = image_tag @question.image.url()
 
+= link_to 'Answers', question_answers_path(@question)
+\|
 = link_to 'Edit', edit_question_path(@question)
 \|
 = link_to 'Back', questions_path

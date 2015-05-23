@@ -2,6 +2,7 @@ class Question < ActiveRecord::Base
   extend Enumerize
 
   belongs_to :user
+  has_many :answers
 
   enumerize :category, in: %i(man animal landscape illustration other), default: :man
 

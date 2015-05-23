@@ -1,9 +1,7 @@
-= simple_form_for(@answer) do |f|
+= simple_form_for([@question, @answer]) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.association :user
-    = f.association :question
     = f.input :body
     = f.input :category
 

@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
 
-  root to: "questions#index"
+  root to: 'answers#index'
 
   devise_for :users
+  resources :users, only:[:show] do
+    member do
+      get 'questions'
+      get 'answers'
+    end
+  end
 
-  get 'questions/public'
-  get 'answers/public'
+  get 'answers', to: 'answers#index'
 
   resources :questions do
-    resources :answers
+    resources :answers, except:[:index]
   end
 
 end

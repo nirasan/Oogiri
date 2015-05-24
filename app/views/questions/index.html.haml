@@ -4,7 +4,7 @@
   %thead
     %tr
       %th Title
-      %th Category
+      %th User
       %th
       %th
       %th
@@ -13,10 +13,14 @@
     - @questions.each do |question|
       %tr
         %td= question.title
-        %td= question.category
+        %td= link_to question.user.name, user_path(question.user)
         %td= link_to 'Show', question
-        %td= link_to 'Edit', edit_question_path(question)
-        %td= link_to 'Destroy', question, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - if current_user == question.user then
+          %td= link_to 'Edit', edit_question_path(question)
+          %td= link_to 'Destroy', question, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - else
+          %td
+          %td
 
 = paginate @questions
 

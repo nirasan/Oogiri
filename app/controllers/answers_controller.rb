@@ -1,14 +1,10 @@
 class AnswersController < ApplicationController
-  before_action :authenticate_user!, except: [:public]
-  before_action :set_question, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_question, only: [:show, :new, :create, :edit, :update, :destroy]
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
 
-  def public
-    @answers = Answer.all.page(params[:page]).per(3)
-  end
-
   def index
-    @answers = @question.answers.page(params[:page]).per(3)
+    @answers = Answer.all.page(params[:page]).per(3)
   end
 
   def show

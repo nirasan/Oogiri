@@ -1,0 +1,14 @@
+%h1 Users#show
+
+%h2 Questions
+- @questions.each do |question|
+  %div
+    = image_tag question.image.url()
+= link_to "more questions", questions_user_path(@user)
+
+%h2 Answers
+- @answers.each do |answer|
+  %div
+    = image_tag answer.question.image.url()
+    = answer.body
+= link_to "more answers", answers_user_path(@user)

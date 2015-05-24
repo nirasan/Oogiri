@@ -16,7 +16,7 @@
       %tr
         %td= question.title
         %td= question.category
-        %td= question.user.email
+        %td= link_to question.user.name, user_path(question.user)
         %td= link_to 'Show', question
         %td= link_to 'Add Answer', new_question_answer_path(question)
 

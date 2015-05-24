@@ -1,0 +1,7 @@
+%h1 Users#questions
+
+- @questions.each do |question|
+  %div
+    = image_tag question.image.url()
+
+= paginate @questions

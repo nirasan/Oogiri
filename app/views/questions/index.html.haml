@@ -1,26 +1,8 @@
 %h1 Listing questions
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @questions.each do |question|
-      %tr
-        %td= question.title
-        %td= link_to question.user.name, user_path(question.user)
-        %td= link_to 'Show', question
-        - if current_user == question.user then
-          %td= link_to 'Edit', edit_question_path(question)
-          %td= link_to 'Destroy', question, :method => :delete, :data => { :confirm => 'Are you sure?' }
-        - else
-          %td
-          %td
+.row
+  - @questions.each do |question|
+    = render question
 
 = paginate @questions
 

@@ -1,0 +1,18 @@
+- question = answer.question
+.col-md-4
+  .panel
+    .panel-body
+      = link_to image_tag(question.image.url(:medium), class:'img-thumbnail'), question
+      %p.text-right
+        = link_to "questioned by " + question.user.name, user_path(question.user)
+        \|
+        = link_to "answered by " + answer.user.name, user_path(answer.user)
+      %p.text-center.lead
+        = answer.body
+      %p.text-center
+        = link_to 'Show', question
+        - if answer.user == current_user then
+          \|
+          = link_to 'Edit', edit_question_answer_path(question, answer)
+          \|
+          = link_to 'Destroy', [question, answer], :method => :delete, :data => { :confirm => 'Are you sure?' }

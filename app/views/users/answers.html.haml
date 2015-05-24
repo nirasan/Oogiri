@@ -1,8 +1,6 @@
 %h1 Users#answers
 
 - @answers.each do |answer|
-  %div
-    = image_tag answer.question.image.url()
-    = answer.body
+  = render answer
 
 = paginate @answers

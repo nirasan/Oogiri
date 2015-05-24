@@ -11,10 +11,17 @@
   = @question.category
 %p
   %b Image:
-  = image_tag @question.image.url()
+  = image_tag @question.image.url(:medium)
 
-= link_to 'Answers', question_answers_path(@question)
-\|
-= link_to 'Edit', edit_question_path(@question)
-\|
+%h2 Answers
+- answers = @question.answers.page(params[:page])
+- answers.each do |answer|
+  %div
+    = image_tag answer.question.image.url()
+    = answer.body
+= paginate answers
+
+- if @question.user == current_user then
+  = link_to 'Edit', edit_question_path(@question)
+  \|
 = link_to 'Back', questions_path

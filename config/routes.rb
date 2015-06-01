@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get 'answers', to: 'answers#index'
 
   resources :questions do
-    resources :answers, except:[:index]
+    resources :answers, except:[:index] do
+      resources :comments, except:[:index, :show]
+    end
   end
 
 end

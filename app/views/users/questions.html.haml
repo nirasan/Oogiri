@@ -1,6 +1,7 @@
 %h1 Users#questions
 
-- @questions.each do |question|
-  = render question
+.row
+  - @questions.each do |question|
+    = render question
 
 = paginate @questions

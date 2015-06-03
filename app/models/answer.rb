@@ -9,4 +9,8 @@ class Answer < ActiveRecord::Base
 
   validates :body, :presence => true
   validates :category, :presence => true
+
+  def sum_of_rate
+    self.comments.map{|comment| comment.rate}.sum
+  end
 end

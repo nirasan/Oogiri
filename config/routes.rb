@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       get 'questions'
       get 'answers'
+      get 'comments'
     end
   end
 

@@ -11,3 +11,9 @@
   - @answers.each do |answer|
     = render answer
 = link_to "more answers", answers_user_path(@user)
+
+%h2 Commented answers
+.row
+  - @comments.each do |comment|
+    = render comment.answer
+= link_to "more commented answers", comments_user_path(@user)

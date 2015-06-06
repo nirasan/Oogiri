@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :questions, :answers]
+  before_action :set_user, only: [:show, :questions, :answers, :comments]
 
   def show
     @questions = @user.questions.limit(3)
     @answers = @user.answers.limit(3)
+    @comments = @user.comments.limit(3)
   end
 
   def questions
@@ -12,6 +13,10 @@ class UsersController < ApplicationController
 
   def answers
     @answers = @user.answers.page(params[:page])
+  end
+
+  def comments
+    @comments = @user.comments.page(params[:page])
   end
 
   private

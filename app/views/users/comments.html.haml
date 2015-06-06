@@ -1,0 +1,7 @@
+%h1 Users#comments
+
+.row
+  - @comments.each do |comment|
+    = render comment.answer
+
+= paginate @comments

@@ -1,4 +1,8 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :favorite do
+    from_user_id 1
+to_user_id 1
+  end
+
   factory :user do
     sequence(:name) { |i| "user#{i}" }
     sequence(:password) { |i| "password#{i}" }

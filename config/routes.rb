@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :favorites, only:[:create, :destroy]
+
   get 'answers', to: 'answers#index'
 
   resources :questions do

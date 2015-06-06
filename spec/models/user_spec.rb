@@ -1,5 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#favoriting?' do
+    let!(:user1) { create(:user) }
+    let!(:user2) { create(:user) }
+    before do
+      user1.favorite_users << user2
+    end
+    context 'ユーザーとお気に入り作成済みの場合' do
+      it 'user1 は user2 をお気に入りしている' do
+        expect(user1.favoriting?(user2)).to eq true
+      end
+      it 'user2 は user1 をお気に入りしていない' do
+        expect(user2.favoriting?(user1)).to eq false
+      end
+    end
+  end
 end

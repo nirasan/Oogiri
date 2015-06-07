@@ -14,6 +14,9 @@ RSpec.describe User, type: :model do
       it 'user2 は user1 をお気に入りしていない' do
         expect(user2.favoriting?(user1)).to eq false
       end
+      it 'user2 は user1 に気に入られている' do
+        expect(user2.favorited_users).to include user1
+      end
     end
   end
 end

@@ -2,6 +2,9 @@
 .col-md-4
   .panel
     .panel-body
+      - if defined? rank
+        %p.text-center
+          = "#{rank}位"
       = link_to image_tag(question.image.url(:medium), class:'img-thumbnail'), question
       %p.text-right
         = link_to "questioned by " + question.user.name, user_path(question.user)

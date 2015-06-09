@@ -1,0 +1,7 @@
+%h1 Rankings#index
+
+.row
+  - @rankings.each do |ranking|
+    = render ranking[:answer], rank: ranking[:rank]
+
+= paginate @rankings

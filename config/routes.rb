@@ -23,4 +23,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'rankings/index'
+
 end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :questions, :answers, :comments]
+  before_action :set_user
 
   def show
     @questions = @user.questions.limit(3)
@@ -17,6 +17,14 @@ class UsersController < ApplicationController
 
   def comments
     @comments = @user.comments.page(params[:page])
+  end
+
+  def favorite_users
+    @favorite_users = @user.favorite_users.page(params[:page])
+  end
+
+  def favorited_users
+    @favorited_users = @user.favorited_users.page(params[:page])
   end
 
   private

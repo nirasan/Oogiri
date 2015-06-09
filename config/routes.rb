@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       get 'questions'
       get 'answers'
       get 'comments'
+      get 'favorite_users'
+      get 'favorited_users'
     end
   end
 

@@ -1,0 +1,8 @@
+= render 'users/users_tab', user: @user
+
+%ul
+  - @favorited_users.each do |user|
+    %li
+      = link_to user.name, user_path(user)
+
+= paginate @favorited_users

@@ -1,8 +1,11 @@
 = render 'users/users_tab', user: @user
 
-#favorite-button-notice
-#favorite-button
-  = render 'favorites/favorite_button', user: @user
+- if @user == current_user
+  = link_to "プロフィール編集", edit_user_registration_path
+- else
+  #favorite-button-notice
+  #favorite-button
+    = render 'favorites/favorite_button', user: @user
 
 %h2 Questions
 .row

@@ -2,6 +2,7 @@ class AnswersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_question, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_answer, only: [:edit, :update, :destroy]
+  before_action :set_referer, only: [:new]
 
   def index
     @answers = Answer.all.page(params[:page]).per(3)
@@ -25,7 +26,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to [@question, @answer], notice: 'Answer was successfully created.' }
+        format.html { redirect_to get_referer, notice: 'Answer was successfully created.' }
       else
         format.html { render :new }
       end

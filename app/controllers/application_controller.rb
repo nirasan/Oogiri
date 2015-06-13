@@ -11,4 +11,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:account_update) << :name
   end
+
+  def set_referer
+    if request.referer
+      session[:referer] = request.referer
+    end
+  end
+
+  def get_referer
+    session[:referer]
+  end
 end

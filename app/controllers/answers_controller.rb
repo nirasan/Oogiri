@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_question, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :new, :create, :edit, :update, :destroy]
   before_action :set_answer, only: [:edit, :update, :destroy]
   before_action :set_referer, only: [:new]
 
@@ -9,7 +9,6 @@ class AnswersController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:question_id])
     @answer = @question.answers.find(params[:id])
   end
 
@@ -53,11 +52,11 @@ class AnswersController < ApplicationController
   private
 
   def set_question
-    @question = current_user.questions.find(params[:question_id])
+    @question = Question.find(params[:question_id])
   end
 
   def set_answer
-    @answer = @question.answers.find(params[:id])
+    @answer = current_user.answers.find_by!(id: params[:id], question: @question)
   end
 
   def answer_params

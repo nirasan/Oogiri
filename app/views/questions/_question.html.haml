@@ -4,6 +4,11 @@
       = link_to image_tag(question.image.url(:medium), class:'img-thumbnail'), question_path(question)
       %p.text-right
         = link_to question.user.name, user_path(question.user)
+        - if question.user == current_user
+          = link_to edit_question_path(question) do
+            %i.fa.fa-edit
+          = link_to question, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+            %i.fa.fa-trash-o
       %p.text-center
         = link_to 'このお題でボケる', new_question_answer_path(question)
 

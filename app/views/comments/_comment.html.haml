@@ -8,7 +8,7 @@
   %i.fa.fa-comment
   = comment.body
   - if comment.user == current_user
-    %br
-    = link_to 'Edit', edit_question_answer_comment_path(question, answer, comment)
-    \|
-    = link_to 'Destroy', [question, answer, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+    = link_to edit_question_answer_comment_path(question, answer, comment) do
+      %i.fa.fa-edit
+    = link_to [question, answer, comment], :method => :delete, :data => { :confirm => 'Are you sure?' } do
+      %i.fa.fa-trash-o

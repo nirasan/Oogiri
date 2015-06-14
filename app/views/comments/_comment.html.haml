@@ -1,0 +1,14 @@
+- answer = comment.answer
+- question = answer.question
+%div
+  %i.fa.fa-user
+  = comment.user.name
+  %i.fa.fa-star
+  = comment.rate
+  %i.fa.fa-comment
+  = comment.body
+  - if comment.user == current_user
+    %br
+    = link_to 'Edit', edit_question_answer_comment_path(question, answer, comment)
+    \|
+    = link_to 'Destroy', [question, answer, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }

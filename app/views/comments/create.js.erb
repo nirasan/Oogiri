@@ -1,0 +1,8 @@
+var el = $('#comment-form-<%= @comment.answer.id %>');
+<% if @comment.errors.empty? %>
+    el.empty();
+    el.html("<%= escape_javascript(render('comments/answer_comment_form', answer:@comment.answer)) %>")
+    el.find('.comment-form-notice').append('<p class="text-success small">コメントしました</p>');
+<% else %>
+    el.find('.comment-form-notice').append('<p class="text-success small">コメントに失敗しました</p>');
+<% end %>

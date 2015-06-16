@@ -22,3 +22,6 @@
       %p.text-center
         %i.fa.fa-star
         = answer.sum_of_rate
+      - if user_signed_in?
+        %div{id: "comment-form-#{answer.id}"}
+          = render 'comments/answer_comment_form', answer:answer

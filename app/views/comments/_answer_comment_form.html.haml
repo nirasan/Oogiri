@@ -1,0 +1,11 @@
+.comment-form-notice
+- question = answer.question
+- comment = answer.comments.find_or_initialize_by(user:current_user)
+= form_for([question, answer, comment], data: {remote: true}) do |f|
+  .comment-rate
+    - [3,2,1].each do |i|
+      %input{type: :radio, value: i, name: 'comment[rate]', id: "comment_rate_#{answer.id}_#{i}", checked: comment.rate == i}
+      %label{for: "comment_rate_#{answer.id}_#{i}"}
+  .clear
+  = f.text_field :body
+  = f.submit

@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @questions = @user.questions.limit(3)
-    @answers = @user.answers.limit(3)
-    @comments = @user.comments.limit(3)
+    @answers = @user.answers.includes(:comments, {:question => :user}).limit(3)
+    @comments = @user.comments.includes(:answer => [:user, :comments, {:question => :user}]).limit(3)
   end
 
   def questions
@@ -12,11 +12,11 @@ class UsersController < ApplicationController
   end
 
   def answers
-    @answers = @user.answers.page(params[:page])
+    @answers = @user.answers.includes(:comments, {:question => :user}).page(params[:page])
   end
 
   def comments
-    @comments = @user.comments.page(params[:page])
+    @comments = @user.comments.includes(:answer => [:user, :comments, {:question => :user}]).page(params[:page])
   end
 
   def favorite_users

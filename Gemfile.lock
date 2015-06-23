@@ -52,6 +52,9 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     builder (3.2.2)
+    bullet (4.14.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
     byebug (4.0.5)
       columnize (= 0.9.0)
     capybara (2.4.4)
@@ -234,6 +237,7 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unicode-display_width (0.1.1)
+    uniform_notifier (1.9.0)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.1.2)
@@ -250,6 +254,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   bootstrap-sass
+  bullet
   byebug
   capybara
   coffee-rails (~> 4.1.0)

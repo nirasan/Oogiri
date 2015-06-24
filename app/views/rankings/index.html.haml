@@ -2,6 +2,6 @@
 
 .row
   - @rankings.each do |ranking|
-    = render ranking[:answer], rank: ranking[:rank]
+    = render ranking.answer, rank: ranking.rank
 
 = paginate @rankings

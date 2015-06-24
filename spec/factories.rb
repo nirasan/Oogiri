@@ -1,8 +1,13 @@
-FactoryGirl.define do  factory :favorite do
-    from_user_id 1
-to_user_id 1
+FactoryGirl.define do
+  factory :ranking do
+    answer nil
+    rank 1
+    rate 1
   end
-
+  factory :favorite do
+    from_user_id 1
+    to_user_id 1
+  end
   factory :user do
     sequence(:name) { |i| "user#{i}" }
     sequence(:password) { |i| "password#{i}" }

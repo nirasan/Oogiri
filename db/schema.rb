@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606140351) do
+ActiveRecord::Schema.define(version: 20150623233937) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 20150606140351) do
 
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
+  create_table "rankings", force: :cascade do |t|
+    t.integer  "answer_id",  limit: 4
+    t.integer  "rank",       limit: 4
+    t.integer  "rate",       limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "rankings", ["answer_id"], name: "index_rankings_on_answer_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -84,4 +94,5 @@ ActiveRecord::Schema.define(version: 20150606140351) do
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "answers"
   add_foreign_key "comments", "users"
+  add_foreign_key "rankings", "answers"
 end

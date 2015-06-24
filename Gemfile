@@ -58,6 +58,8 @@ gem 'kaminari'
 
 gem 'activerecord-import'
 
+gem 'default_value_for'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', '~> 2.6.0'

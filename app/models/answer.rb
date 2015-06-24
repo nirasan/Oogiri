@@ -1,6 +1,8 @@
 class Answer < ActiveRecord::Base
   extend Enumerize
 
+  default_value_for :sum_of_rate, 0
+
   belongs_to :user
   belongs_to :question
   has_many :comments
@@ -9,8 +11,4 @@ class Answer < ActiveRecord::Base
 
   validates :body, :presence => true
   validates :category, :presence => true
-
-  def sum_of_rate
-    self.comments.map{|comment| comment.rate}.sum
-  end
 end

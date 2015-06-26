@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      question: お題
+      answer: ボケ
+      comment: コメント
+      ranking: ランキング
+      favorite: お気に入り
+    attributes:
+      user:
+        id: ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+      question:
+        title: タイトル
+        body: 本文
+        image: 画像
+      answer:
+        body: 本文
+        category: カテゴリー
+        sum_of_rate: 評価
+      comment:
+        body: 本文
+        rate: 評価
+

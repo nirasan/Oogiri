@@ -1,7 +1,7 @@
 %ul.nav.nav-tabs.nav-justified
-  = user_tab('show', user.name, user_path(user))
-  = user_tab('questions', 'Questions', questions_user_path(user))
-  = user_tab('answers', 'Answers', answers_user_path(user))
-  = user_tab('comments', 'CommentedAnswers', comments_user_path(user))
-  = user_tab('favorite_users', 'FavoriteUsers', favorite_users_user_path(user))
-  = user_tab('favorited_users', 'FavoritedUsers', favorited_users_user_path(user))
+  = user_tab('show', "#{user.name}のページ", user_path(user))
+  = user_tab('questions', 'お題', questions_user_path(user))
+  = user_tab('answers', 'ボケ', answers_user_path(user))
+  = user_tab('comments', 'コメントしたボケ', comments_user_path(user))
+  = user_tab('favorite_users', 'お気に入り', favorite_users_user_path(user))
+  = user_tab('favorited_users', 'お気に入られ', favorited_users_user_path(user))

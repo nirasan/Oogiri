@@ -3,7 +3,7 @@
 .row
   = render @question
 
-%h2 Answers
+%h2 このお題のボケ
 .row
   - answers = @question.answers.page(params[:page]).per(9)
   - answers.each do |answer|

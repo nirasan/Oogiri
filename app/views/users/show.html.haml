@@ -1,26 +1,28 @@
 = render 'users/users_tab', user: @user
 
 - if @user == current_user
-  = link_to "プロフィール編集", edit_user_registration_path
+  = link_to edit_user_registration_path do
+    %button.btn.btn-default
+      プロフィール編集
 - else
   #favorite-button-notice
   #favorite-button
     = render 'favorites/favorite_button', user: @user
 
-%h2 Questions
+%h2 お題
 .row
   - @questions.each do |question|
     = render question
-= link_to "more questions", questions_user_path(@user)
+= link_to "もっと見る", questions_user_path(@user)
 
-%h2 Answers
+%h2 ボケ
 .row
   - @answers.each do |answer|
     = render answer
-= link_to "more answers", answers_user_path(@user)
+= link_to "もっと見る", answers_user_path(@user)
 
-%h2 Commented answers
+%h2 コメントしたボケ
 .row
   - @comments.each do |comment|
     = render comment.answer
-= link_to "more commented answers", comments_user_path(@user)
+= link_to "もっと見る", comments_user_path(@user)

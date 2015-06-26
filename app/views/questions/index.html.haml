@@ -1,11 +1,12 @@
-%h1 Listing questions
+%h1 お題一覧
+
+= link_to new_question_path do
+  %button.btn.btn-default
+    %i.fa.fa-plus
+    新しいお題を投稿する
 
 .row
   - @questions.each do |question|
     = render question
 
 = paginate @questions
-
-%div
-  = link_to 'New Question', new_question_path
-

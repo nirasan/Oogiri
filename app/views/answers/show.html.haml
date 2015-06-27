@@ -5,10 +5,5 @@
 
 %h2 コメント
 
-- if my_comment = @answer.comments.find_by(user:current_user) then
-  = render my_comment
-- else
-  %div= link_to 'コメントする', new_question_answer_comment_path(@question, @answer)
-
 - @answer.comments.where.not(user: current_user).each do |comment|
   = render comment

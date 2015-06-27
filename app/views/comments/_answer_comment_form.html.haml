@@ -7,5 +7,13 @@
       %input{type: :radio, value: i, name: 'comment[rate]', id: "comment_rate_#{answer.id}_#{i}", checked: comment.rate == i}
       %label{for: "comment_rate_#{answer.id}_#{i}"}
   .clear
-  = f.text_field :body
-  = f.submit
+  .input-group
+    = f.text_field :body, class: "form-control", style: "height:33px;"
+    %span.input-group-btn
+      %button.btn.btn-primary{type:"submit", style:"border-bottom-left-radius:0;border-top-left-radius:0;left-margin:-1px;"}
+        %i.fa.fa-comment
+    - if !comment.new_record?
+      %span.input-group-btn
+        = link_to [question, answer, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }, remote: true do
+          %button.btn.btn-danger
+            %i.fa.fa-trash-o

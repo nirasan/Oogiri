@@ -1,0 +1,4 @@
+var el = $('#comment-form-<%= @answer.id %>');
+el.empty();
+el.html("<%= escape_javascript(render('comments/answer_comment_form', answer:@answer)) %>")
+el.find('.comment-form-notice').append('<p class="text-success small">コメントを削除しました</p>');

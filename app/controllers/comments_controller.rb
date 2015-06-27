@@ -14,39 +14,23 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     @comment.answer = @answer
-
+    @comment.save
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to [@question,@answer], notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: [@question, @answer, @comment] }
-        format.js
-      else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-        format.js
-      end
+      format.js
     end
   end
 
   def update
+    @comment.update(comment_params)
     respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to [@question, @answer], notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: [@question, @answer, @comment] }
-        format.js
-      else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-        format.js
-      end
+      format.js
     end
   end
 
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to question_answer_url(@question, @answer), notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js
     end
   end
 

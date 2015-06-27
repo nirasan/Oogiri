@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:edit, :update, :destroy]
 
   def index
-    @questions = Question.includes(:user).all.page(params[:page])
+    @questions = Question.includes(:user).category_is(params[:category]).all.page(params[:page]).per(3)
   end
 
   def show

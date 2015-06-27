@@ -1,9 +1,16 @@
 %h1 お題一覧
 
+.btn-group
+  = render "questions/index_category_btn", text:'人物', category:'man'
+  = render "questions/index_category_btn", text:'動物', category:'animal'
+  = render "questions/index_category_btn", text:'風景', category:'landscape'
+  = render "questions/index_category_btn", text:'イラスト', category:'illustration'
+  = render "questions/index_category_btn", text:'その他', category:'other'
+
 = link_to new_question_path do
-  %button.btn.btn-default
+  %button.btn.btn-warning
     %i.fa.fa-plus
-    新しいお題を投稿する
+    新しいお題
 
 .row
   - @questions.each do |question|

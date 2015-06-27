@@ -11,4 +11,6 @@ class Question < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :image, :presence => true
+
+  scope :category_is, -> (category) { if !category.blank? then where(category: category) end }
 end

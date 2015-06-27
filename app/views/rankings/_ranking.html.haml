@@ -1,0 +1,7 @@
+.col-md-4
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        = "#{ranking.rank}位"
+    .panel-body
+      = render "answers/answer_content", answer:ranking.answer

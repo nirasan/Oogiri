@@ -1,0 +1,20 @@
+- question = answer.question
+= link_to image_tag(question.image.url(:medium), class:'img-thumbnail'), [question, answer]
+%p.text-right
+  %i.fa.fa-image
+  = link_to question.user.name, user_path(question.user)
+  %i.fa.fa-comment-o
+  = link_to answer.user.name, user_path(answer.user)
+  - if answer.user == current_user
+    = link_to edit_question_answer_path(question, answer) do
+      %i.fa.fa-edit
+    = link_to [question, answer], :method => :delete, :data => { :confirm => '削除しますか？' } do
+      %i.fa.fa-trash-o
+%p.text-center.lead{style:'margin-bottom:0px;'}
+  = answer.body
+%p.text-center
+  %i.fa.fa-star
+  = answer.sum_of_rate
+- if user_signed_in?
+  %div{id: "comment-form-#{answer.id}"}
+    = render 'comments/answer_comment_form', answer:answer

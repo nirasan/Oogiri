@@ -1,5 +1,12 @@
 %h1 ボケ一覧
 
+.btn-group
+  = render "answers/index_category_btn", text:'バカ', category:'baka'
+  = render "answers/index_category_btn", text:'シュール', category:'shul'
+  = render "answers/index_category_btn", text:'ブラック', category:'black'
+  = render "answers/index_category_btn", text:'例え', category:'metaphor'
+  = render "answers/index_category_btn", text:'その他', category:'other'
+
 .row
   - @answers.each do |answer|
     = render answer

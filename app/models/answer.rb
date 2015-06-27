@@ -7,8 +7,15 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   has_many :comments
 
-  enumerize :category, in: %i(baka shul black metaphor other), default: :other
+  @@categories = %w(baka shul black metaphor other)
+  enumerize :category, in: @@categories, default: :other
 
   validates :body, :presence => true
   validates :category, :presence => true
+
+  scope :category_is, -> (category) {
+    if !category.blank? && @@categories.include?(category)
+      where(category: category)
+    end
+  }
 end

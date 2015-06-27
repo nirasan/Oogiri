@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
   before_action :set_referer, only: [:new]
 
   def index
-    @answers = Answer.includes(:user, {:question => :user}, :comments).all.page(params[:page]).per(3)
+    @answers = Answer.includes(:user, {:question => :user}, :comments).category_is(params[:category]).all.page(params[:page]).per(3)
   end
 
   def show

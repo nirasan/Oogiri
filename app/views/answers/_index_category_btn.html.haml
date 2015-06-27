@@ -1,0 +1,3 @@
+- is_active = params[:category] == category
+- url = answers_url(category: category)
+%button.btn.btn-default{ class: if is_active then "active" end, onclick:"location.href = '#{url}';" }= text

@@ -1,6 +1,7 @@
 %h1 お題一覧
 
 .btn-group
+  = render "questions/index_category_btn", text:'全て', category:''
   = render "questions/index_category_btn", text:'人物', category:'man'
   = render "questions/index_category_btn", text:'動物', category:'animal'
   = render "questions/index_category_btn", text:'風景', category:'landscape'

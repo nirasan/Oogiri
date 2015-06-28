@@ -25,7 +25,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to get_referer, notice: 'Answer was successfully created.' }
+        format.html { redirect_to get_referer, notice: 'ボケ投稿に成功しました。' }
       else
         format.html { render :new }
       end
@@ -35,7 +35,7 @@ class AnswersController < ApplicationController
   def update
     respond_to do |format|
       if @answer.update(answer_params)
-        format.html { redirect_to [@question, @answer], notice: 'Answer was successfully updated.' }
+        format.html { redirect_to [@question, @answer], notice: 'ボケ編集に成功しました。' }
       else
         format.html { render :edit }
       end
@@ -45,7 +45,7 @@ class AnswersController < ApplicationController
   def destroy
     @answer.destroy
     respond_to do |format|
-      format.html { redirect_to question_answers_url @question, notice: 'Answer was successfully destroyed.' }
+      format.html { redirect_to question_answers_url @question, notice: 'ボケ削除に成功しました。' }
     end
   end
 

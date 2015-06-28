@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624032015) do
+ActiveRecord::Schema.define(version: 20150628130733) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150624032015) do
   end
 
   add_index "comments", ["answer_id"], name: "index_comments_on_answer_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["user_id", "answer_id"], name: "index_comments_on_user_id_and_answer_id", unique: true, using: :btree
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "from_user_id", limit: 4, null: false

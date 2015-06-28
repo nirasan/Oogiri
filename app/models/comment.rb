@@ -2,6 +2,9 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :answer
 
+  validates :rate, inclusion: { in: 0..3 }
+  validates :user_id, uniqueness: { scope: [:answer_id] }
+
   after_save :update_answer_sum_of_rate
   after_destroy :update_answer_sum_of_rate
 

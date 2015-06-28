@@ -2,14 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_question
   before_action :set_answer
-  before_action :set_comment, only: [:edit, :update, :destroy]
-
-  def new
-    @comment = current_user.comments.build(answer: @answer)
-  end
-
-  def edit
-  end
+  before_action :set_comment, only: [:update, :destroy]
 
   def create
     @comment = current_user.comments.build(comment_params)

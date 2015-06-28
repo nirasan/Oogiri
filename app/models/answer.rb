@@ -12,7 +12,7 @@ class Answer < ActiveRecord::Base
 
   validates :body, :presence => true
 
-  scope :includes_for_user_list, -> { include(:question => :user) }
+  scope :includes_for_user_list, -> { includes(:question => :user) }
 
   scope :category_is, -> (category) {
     if !category.blank? && @@categories.include?(category)

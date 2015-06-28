@@ -11,7 +11,6 @@ class Answer < ActiveRecord::Base
   enumerize :category, in: @@categories, default: :other
 
   validates :body, :presence => true
-  validates :category, :presence => true
 
   scope :includes_for_user_list, -> { include(:question => :user) }
 

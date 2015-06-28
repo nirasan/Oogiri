@@ -41,7 +41,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   Bullet.enable = true
-  Bullet.alert = false
+  Bullet.alert = true
   Bullet.bullet_logger = true
   Bullet.console = true
   Bullet.rails_logger = false

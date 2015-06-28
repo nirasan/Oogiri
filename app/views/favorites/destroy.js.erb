@@ -1,3 +1,8 @@
-$('#favorite-button-notice').empty();
-$('#favorite-button-notice').append('<p class="text-success small">お気に入り登録を解除しました</p>');
-$('#favorite-button').html("<%= escape_javascript(render('favorites/favorite_button', user: @favorite.to_user)) %>");
+var el = $('#favorite-button-notice');
+el.empty();
+<% if @favorite.errors.empty? %>
+    el.append('<p class="text-success small">お気に入り登録を解除しました</p>');
+    $('#favorite-button').html("<%= escape_javascript(render('favorites/favorite_button', user: @favorite.to_user)) %>");
+<% else %>
+    el.append('<p class="text-success small">お気に入り登録を解除に失敗しました</p>');
+<% end %>

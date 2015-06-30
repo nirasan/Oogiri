@@ -1,16 +1,7 @@
 class Ranking < ActiveRecord::Base
-  belongs_to :answer
+  include UpdateRanking
 
-  def self.update_ranking(properties)
-    rankings = []
-    properties.each do |property|
-      rankings << Ranking.new(property)
-    end
-    Ranking.transaction do
-      Ranking.delete_all
-      Ranking.import(rankings)
-    end
-  end
+  belongs_to :answer
 
   def self.calc_ranking
     ranking_data = Comment.group(:answer_id).sum(:rate)

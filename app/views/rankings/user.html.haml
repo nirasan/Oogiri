@@ -1,0 +1,17 @@
+%h1 ランキング
+
+.btn-group
+  %button.btn.btn-default{ onclick:"location.href = '#{rankings_index_url}';" } ボケ
+  %button.btn.btn-default.active ユーザー
+
+.row
+  - @rankings.each do |ranking|
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            = "#{ranking.rank}位 #{ranking.user.name}"
+        .panel-body
+          = render "answers/answer_content", answer:ranking.user.answers.first
+
+= paginate @rankings

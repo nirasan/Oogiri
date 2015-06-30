@@ -1,5 +1,9 @@
 %h1 ランキング
 
+.btn-group
+  %button.btn.btn-default.active ボケ
+  %button.btn.btn-default{ onclick:"location.href = '#{rankings_user_url}';" } ユーザー
+
 .row
   - @rankings.each do |ranking|
     = render ranking

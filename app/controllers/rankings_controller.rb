@@ -4,4 +4,8 @@ class RankingsController < ApplicationController
       .includes(:answer => [:user, {:question => :user}])
       .page(params[:page]).per(3)
   end
+
+  def user
+    @rankings = UserRanking.includes(:user => {:answers => {:question => :user}}).page(params[:page]).per(3)
+  end
 end

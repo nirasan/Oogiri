@@ -1,4 +1,9 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :user_ranking do
+    user nil
+rank 1
+rate 1
+  end
+
   factory :ranking do
     answer nil
     rank 1

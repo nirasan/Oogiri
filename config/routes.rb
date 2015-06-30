@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   end
 
   get 'rankings/index'
+  get 'rankings/user'
 
 end

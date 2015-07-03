@@ -1,5 +1,3 @@
-- answer = comment.answer
-- question = answer.question
 %div
   %i.fa.fa-user
   = comment.user.name
@@ -7,8 +5,3 @@
   = comment.rate
   %i.fa.fa-comment
   = comment.body
-  - if comment.user == current_user
-    = link_to edit_question_answer_comment_path(question, answer, comment) do
-      %i.fa.fa-edit
-    = link_to [question, answer, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }, remote: true do
-      %i.fa.fa-trash-o

@@ -1,0 +1,9 @@
+- if signed_in?
+  - if current_user.favoriting?(user)
+    = link_to user_favorite_path(current_user.favorites_from.find_by(to_user: user)), method: :delete, remote: true do
+      %button.btn.btn-default
+        お気に入り登録を解除する
+  - else
+    = link_to user_favorites_path(to_user_id: user.id), method: :post, remote: true do
+      %button.btn.btn-default
+        お気に入り登録

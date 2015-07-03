@@ -6,9 +6,9 @@
   %i.fa.fa-comment-o
   = link_to answer.user.name, user_path(answer.user)
   - if answer.user == current_user
-    = link_to edit_question_answer_path(question, answer) do
+    = link_to edit_user_question_answer_path(question, answer) do
       %i.fa.fa-edit
-    = link_to [question, answer], :method => :delete, :data => { :confirm => '削除しますか？' } do
+    = link_to user_question_answer_path(question, answer), :method => :delete, :data => { :confirm => '削除しますか？' } do
       %i.fa.fa-trash-o
 %p.text-center.lead{style:'margin-bottom:0px;'}
   = answer.body

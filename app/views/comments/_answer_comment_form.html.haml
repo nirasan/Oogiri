@@ -1,7 +1,7 @@
 .comment-form-notice
 - question = answer.question
 - comment = answer.comments.find_or_initialize_by(user:current_user)
-= form_for([question, answer, comment], data: {remote: true}) do |f|
+= form_for([:user, question, answer, comment], data: {remote: true}) do |f|
   .comment-rate
     - [3,2,1].each do |i|
       %input{type: :radio, value: i, name: 'comment[rate]', id: "comment_rate_#{answer.id}_#{i}", checked: comment.rate == i}
@@ -14,6 +14,6 @@
         %i.fa.fa-comment
     - if !comment.new_record?
       %span.input-group-btn
-        = link_to [question, answer, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }, remote: true do
+        = link_to user_question_answer_comment_path(question, answer, comment), :method => :delete, :data => { :confirm => 'Are you sure?' }, remote: true do
           %button.btn.btn-danger
             %i.fa.fa-trash-o

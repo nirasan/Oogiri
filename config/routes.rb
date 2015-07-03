@@ -13,14 +13,19 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :favorites, only:[:create, :destroy]
-
   get 'answers', to: 'answers#index'
 
-  resources :questions do
-    resources :answers, except:[:index] do
-      resources :comments, except:[:index, :show]
+  resources :questions, only:[:index, :show] do
+    resources :answers, only:[:show]
+  end
+
+  namespace :user do
+    resources :questions, only:[:new, :edit, :create, :update, :destroy] do
+      resources :answers, only:[:new, :edit, :create, :update, :destroy] do
+        resources :comments, only:[:create, :update, :destroy]
+      end
     end
+    resources :favorites, only:[:create, :destroy]
   end
 
   get 'rankings/index'

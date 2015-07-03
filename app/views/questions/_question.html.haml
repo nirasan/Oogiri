@@ -1,5 +1,5 @@
 .col-md-4
-  .panel
+  .panel.question-panel
     .panel-body
       = link_to image_tag(question.image.url(:medium), class:'img-thumbnail'), question_path(question)
       - if !defined? no_link

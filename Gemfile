@@ -56,6 +56,7 @@ gem 'font-awesome-sass'
 
 gem 'enumerize'
 gem 'paperclip'
+gem 'paperclip_database', '~> 2.0'
 
 gem 'simple_form'
 gem 'kaminari'

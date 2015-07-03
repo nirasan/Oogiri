@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
   resources :questions, only:[:index, :show] do
     resources :answers, only:[:show]
+    member do
+      get :images
+    end
   end
 
   namespace :user do

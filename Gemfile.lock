@@ -154,6 +154,8 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paperclip_database (2.3.1)
+      paperclip (>= 2.3.0)
     pg (0.18.2)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
@@ -284,6 +286,7 @@ DEPENDENCIES
   letter_opener
   mysql2
   paperclip
+  paperclip_database (~> 2.0)
   pg
   quiet_assets
   rails (= 4.2.1)

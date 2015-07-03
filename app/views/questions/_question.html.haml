@@ -1,7 +1,7 @@
 .col-md-4
   .panel.question-panel
     .panel-body
-      = link_to image_tag(question.image.url(:medium), class:'img-thumbnail'), question_path(question)
+      = link_to image_tag(images_question_url(question, :style => :medium), class:'img-thumbnail'), question_path(question)
       - if !defined? no_link
         %p.text-right
           = link_to question.user.name, user_path(question.user)

@@ -7,7 +7,9 @@ class Question < ActiveRecord::Base
   @@categories = %w(man animal landscape illustration other)
   enumerize :category, in: @@categories, default: :man
 
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
+  has_attached_file :image,
+    :storage => :database,
+    :styles => { :medium => "300x300>" }
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
   validates :title, :presence => true

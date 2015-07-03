@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630070226) do
+ActiveRecord::Schema.define(version: 20150703130615) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 20150630070226) do
 
   add_index "favorites", ["from_user_id", "to_user_id"], name: "index_favorites_on_from_user_id_and_to_user_id", unique: true, using: :btree
   add_index "favorites", ["to_user_id"], name: "index_favorites_on_to_user_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.integer "question_id",   limit: 4
+    t.string  "style",         limit: 255
+    t.binary  "file_contents", limit: 65535
+  end
 
   create_table "questions", force: :cascade do |t|
     t.integer  "user_id",            limit: 4

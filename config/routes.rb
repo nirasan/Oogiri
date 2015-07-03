@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
 
-  root to: 'answers#index'
+  root controller: :answers, action: :index
 
   devise_for :users
   resources :users, only:[:show] do
     member do
-      get 'questions'
-      get 'answers'
-      get 'comments'
-      get 'favorite_users'
-      get 'favorited_users'
+      get :questions
+      get :answers
+      get :comments
+      get :favorite_users
+      get :favorited_users
     end
   end
 
-  get 'answers', to: 'answers#index'
+  resources :answers, only:[:index]
 
   resources :questions, only:[:index, :show] do
     resources :answers, only:[:show]
@@ -28,7 +28,9 @@ Rails.application.routes.draw do
     resources :favorites, only:[:create, :destroy]
   end
 
-  get 'rankings/index'
-  get 'rankings/user'
+  namespace :rankings do
+    get :index
+    get :user
+  end
 
 end

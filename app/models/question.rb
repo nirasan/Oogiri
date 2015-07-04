@@ -21,5 +21,5 @@ class Question < ActiveRecord::Base
     end
   }
 
-  scope :recent, -> { order('updated_at DESC') }
+  scope :recent, -> { order('updated_at DESC, id DESC') }
 end

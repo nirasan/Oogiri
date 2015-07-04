@@ -1,9 +1,11 @@
-FactoryGirl.define do  factory :user_ranking do
-    user nil
-rank 1
-rate 1
-  end
+include ActionDispatch::TestProcess
 
+FactoryGirl.define do
+  factory :user_ranking do
+    user nil
+    rank 1
+    rate 1
+  end
   factory :ranking do
     answer nil
     rank 1
@@ -21,7 +23,8 @@ rate 1
   factory :question do
     sequence(:title) { |i| "question#{i}" }
     category :man
-    image { File.open("spec/images/512x512.png") }
+    # image { File.open("spec/images/512x512.png") }
+    image { fixture_file_upload("#{Rails.root}/spec/images/512x512.png", "image/png") }
   end
   factory :answer do
     sequence(:body) { |i| "answer#{i}" }
@@ -29,5 +32,6 @@ rate 1
   end
   factory :comment do
     sequence(:body) { |i| "comment#{i}" }
+    rate 1
   end
 end

@@ -6,7 +6,7 @@
     = f.input :category
     = f.input :image
     - if @question.image.exists?
-      = image_tag @question.image.url(), class:"img-thumbnail"
+      = image_tag images_question_url(@question), class:"img-thumbnail"
 
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'

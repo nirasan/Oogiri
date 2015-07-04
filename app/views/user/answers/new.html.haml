@@ -1,6 +1,5 @@
 %h1 ボケ投稿
 
-.row
-  = render 'questions/question', question:@question, no_link:true
+= image_tag(images_question_url(@question, style: :medium), class:'img-thumbnail')
 
 = render 'form'

@@ -1,5 +1,5 @@
 - question = answer.question
-= link_to image_tag(question.image.url(:medium), class:'img-thumbnail'), [question, answer]
+= link_to image_tag(images_question_url(question, style: :medium), class:'img-thumbnail'), [question, answer]
 %p.text-right
   %i.fa.fa-image
   = link_to question.user.name, user_path(question.user)

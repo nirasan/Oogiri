@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe CommentsController, type: :routing do
+RSpec.describe User::CommentsController, type: :routing do
   describe "routing" do
 
     it "routes to #index" do

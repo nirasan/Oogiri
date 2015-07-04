@@ -88,7 +88,7 @@ Rails.application.configure do
     domain: "gentle-ravine-7541.herokuapp.com",
     enable_starttls_auto: true,
     user_name: ENV['MANDRILL_USERNAME'],
-    password: ENV['MANDRILL_API_KEY']
+    password: ENV['MANDRILL_APIKEY']
   }
   config.action_mailer.default_url_options = { host: "gentle-ravine-7541.herokuapp.com" }
 

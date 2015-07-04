@@ -3,7 +3,7 @@
 
 %h2 このお題のボケ
 .row
-  - answers = @question.answers.page(params[:page]).per(9)
+  - answers = @question.answers.recent.page(params[:page]).per(9)
   - answers.each do |answer|
     = render answer
 = paginate answers

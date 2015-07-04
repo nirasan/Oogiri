@@ -2,21 +2,21 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def show
-    @questions = @user.questions.limit(3)
-    @answers = @user.answers.includes_for_user_list.limit(3)
-    @comments = @user.comments.includes_for_user_list.limit(3)
+    @questions = @user.questions.recent.limit(3)
+    @answers = @user.answers.includes_for_user_list.recent.limit(3)
+    @comments = @user.comments.includes_for_user_list.recent.limit(3)
   end
 
   def questions
-    @questions = @user.questions.page(params[:page])
+    @questions = @user.questions.recent.page(params[:page])
   end
 
   def answers
-    @answers = @user.answers.includes_for_user_list.page(params[:page])
+    @answers = @user.answers.includes_for_user_list.recent.page(params[:page])
   end
 
   def comments
-    @comments = @user.comments.includes_for_user_list.page(params[:page])
+    @comments = @user.comments.includes_for_user_list.recent.page(params[:page])
   end
 
   def favorite_users

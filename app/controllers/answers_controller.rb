@@ -1,7 +1,11 @@
 class AnswersController < ApplicationController
 
   def index
-    @answers = Answer.includes(:user, {:question => :user}).category_is(params[:category]).page(params[:page])
+    @answers = Answer
+      .includes(:user, {:question => :user})
+      .category_is(params[:category])
+      .recent
+      .page(params[:page])
   end
 
   def show

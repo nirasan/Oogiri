@@ -19,4 +19,6 @@ class Answer < ActiveRecord::Base
       where(category: category)
     end
   }
+
+  scope :recent, -> { order('updated_at DESC') }
 end

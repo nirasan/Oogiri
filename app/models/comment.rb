@@ -14,4 +14,6 @@ class Comment < ActiveRecord::Base
   end
 
   scope :includes_for_user_list, -> { includes(:answer => [:user, {:question => :user}]) }
+
+  scope :recent, -> { order('updated_at DESC') }
 end

@@ -4,7 +4,11 @@ class QuestionsController < ApplicationController
   downloads_files_for :question, :image
 
   def index
-    @questions = Question.includes(:user).category_is(params[:category]).page(params[:page])
+    @questions = Question
+      .includes(:user)
+      .category_is(params[:category])
+      .recent
+      .page(params[:page])
   end
 
   def show

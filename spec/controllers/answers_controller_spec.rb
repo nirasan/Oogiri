@@ -18,6 +18,7 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
+require 'answers_controller'
 RSpec.describe AnswersController, type: :controller do
 
   let!(:user1) { create(:user) }

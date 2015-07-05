@@ -17,6 +17,11 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'factory_girl_rails'
+require 'capybara'
+require 'capybara/rspec'
+
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -43,7 +48,10 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
-# The settings below are suggested to provide a good initial experience
+
+  config.include Capybara::DSL
+
+  # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
   # These two settings work together to allow you to limit a spec run

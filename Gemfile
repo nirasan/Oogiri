@@ -70,7 +70,9 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 2.6.0'
   gem 'capybara'
   gem 'factory_girl_rails'
-  
+  gem 'launchy'
+  gem 'poltergeist'
+
   gem 'quiet_assets'
   
   gem 'hirb'
